@@ -1,0 +1,105 @@
+
+
+<%= form_for(@user, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :profile_image %>
+    <%= form.file_field :profile_image %>
+  </div>
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name%>
+  </div>
+   <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name%>
+  </div>
+
+   <div class="field">
+    <%= form.label :contact_number %>
+    <%= form.text_field :contact_number%>
+  </div>
+
+   <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address%>
+  </div>
+
+   <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username%>
+  </div>
+
+  <div class="field">
+    <%= form.label :dob %>
+    <%= form.date_field :dob %>
+  </div>
+
+  <div class="field">
+    <%= form.label :father_name %>
+    <%= form.text_field :father_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mother_name %>
+    <%= form.text_field :mother_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :religion %>
+    <%= form.text_field :religion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cast %>
+    <%= form.text_field :cast %>
+  </div>
+
+  <div class="field">
+    <%= form.label :marital_status %>
+    <%= form.text_field :marital_status%>
+  </div>
+
+   <div class="field">
+    <%= form.label :height  %>
+    <%= form.text_field :height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight%>
+    <%= form.text_field :weight%>
+  </div>
+
+  <div class="field">
+    <%= form.label :highest_qualification %>
+    <%= form.text_field :highest_qualification%>
+  </div>
+
+  
+
+  <div class="field">
+    <%= form.label :job_packages %>
+    <%= form.text_field :job_packages%>
+  </div>
+
+  <div class="field">
+    <%= form.label :job_designation %>
+    <%= form.text_field :job_designation%>
+  </div>
+
+ <div class="field">
+    <%= form.label :job_location %>
+    <%= form.text_field :job_location%>
+  </div>
+
+  <div class="field">
+    <%= form.label :mother_tongue %>
+    <%= form.text_field :mother_tongue%>
+  </div>
+    
+  <!-- Add more fields as needed -->
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

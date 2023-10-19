@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :trackable,
          authentication_keys: [:login]
-
+        
   validates :username, presence: true, uniqueness: true
-
+  has_one_attached :profile_image
   attr_accessor :login
 
   def login

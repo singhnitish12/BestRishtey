@@ -1,0 +1,39 @@
+<!-- app/views/users/show.html.erb -->
+
+<h1><%= @user.first_name %>'s Profile</h1>
+
+<div>
+  <strong>Profile Image:</strong>
+  <% if @user.profile_image.attached? %>
+    <%= image_tag @user.profile_image.variant(resize: '100x100') %>
+  <% else %>
+    <p>No profile image available.</p>
+  <% end %>
+</div>
+
+<div>
+  <strong>Username:</strong> <%= @user.username %>
+</div>
+<div>
+  <strong>First Name:</strong> <%= @user.first_name%>
+</div>
+<div>
+    <strong>Last Name:</strong><%= @user.last_name%>
+</div>
+<div>
+  <strong>Email:</strong> <%= @user.email %>
+</div>
+
+<div>
+  <strong>Contact Number:</strong> <%= @user.contact_number %>
+</div>
+
+<div>
+  <strong>Address:</strong> <%= @user.address %>
+</div>
+
+
+<!-- Add more details as needed -->
+
+<%= link_to 'Edit Profile', edit_user_path(@user) %>
+

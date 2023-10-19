@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
   root 'home#index'
-
+  resources :users, only: [:show, :edit, :update, :destroy]
   get '/confirmation_pending' => 'home#after_registration_path'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

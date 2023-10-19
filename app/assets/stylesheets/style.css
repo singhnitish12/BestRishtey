@@ -139,7 +139,7 @@ img{
     overflow-clip-margin: content-box;
 }
 
-.image{
+.sahnai{
     width: 60px;
     height: auto;
     color: black;
@@ -363,11 +363,11 @@ img{
     font-size: 15px;
 }
 
-.card-title{
+.ct{
     color: #ee74da !important;
 }
 
-.card img{
+.caard img{
     height: 50%;
 }
 
@@ -391,15 +391,15 @@ img{
     overflow: hidden;
 }
 
-.card img {
+.caard img {
     transition: transform 0.3s; /* Add a smooth transition effect */
 }
 
-.card:hover img {
+.caard:hover img {
     transform: scale(1.1); /* Adjust the scale factor for the zoom effect */
 }
 
-.card:hover{
+.caard:hover{
     transform:scale(1.04);
 }
 
@@ -541,4 +541,23 @@ i {
 
 .follow a{
     text-decoration: none;
+}
+
+.clor{
+    background-color: rgb(217 12 59 / 12%)!important;
+}
+
+.navmargin{
+    margin-top: 7.5%;
+}
+
+.virat{
+    width: 100%;
+    background-image: url("/assets/poster.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    z-index: 1;
 }

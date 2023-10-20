@@ -7,7 +7,9 @@ class UsersController < ApplicationController
       # @user is already set by the before_action
     end
   
-   
+   def edit_description
+    @user = User.find(params[:id])
+   end
   
     def edit
       # @user is already set by the before_action
@@ -36,7 +38,7 @@ class UsersController < ApplicationController
         params.require(:user).permit(
           :first_name, :last_name, :contact_number, :address, :username, :email, :password, :password_confirmation,
           :dob, :father_name, :mother_name, :religion, :cast, :marital_status, :height, :weight,
-          :highest_qualification, :job_packages, :job_designation, :job_location,:profile_image,:mother_tongue
+          :highest_qualification, :job_packages, :job_designation, :job_location,:profile_image,:mother_tongue, :description
         )
       end
   end

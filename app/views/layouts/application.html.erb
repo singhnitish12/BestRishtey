@@ -36,9 +36,9 @@
     <nav>
     <%= render "shared/header" %>
     </nav>
-      
+    
       <%= yield %>
-     
+      <%= turbo_frame_tag 'remote_modal' %>
     <footer>
     <%= render "shared/footer" %>  
     </footer>

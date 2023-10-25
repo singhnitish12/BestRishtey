@@ -39,7 +39,7 @@ gem "jbuilder"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
-# Reduces boot times through caching; required in config/boot.rb
+# Reduces boot times through caching; required in config/boot.rbgem 
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
@@ -74,4 +74,6 @@ end
 
 gem 'cssbundling-rails'
 gem 'devise'
-
+gem 'ruby-vips' 
+gem 'pry'
+gem 'activeadmin'

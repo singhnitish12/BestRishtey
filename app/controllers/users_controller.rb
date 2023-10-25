@@ -120,7 +120,7 @@ class UsersController < ApplicationController
         params.require(:user).permit(
           :first_name, :last_name, :contact_number, :address, :username, :email, :password, :password_confirmation,
           :dob, :father_name, :mother_name, :religion, :cast, :marital_status, :height, :weight,
-          :highest_qualification, :job_packages, :job_designation, :job_location,:profile_image,:mother_tongue, :description
+          :highest_qualification, :job_packages, :job_designation, :job_location,:profile_image,:mother_tongue,:bride_or_groom,:operator,:unique_id,:age 
         )
       end
   end

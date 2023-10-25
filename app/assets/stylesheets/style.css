@@ -560,4 +560,10 @@ i {
     height: 80vh;
     overflow: hidden;
     z-index: 1;
+.profile_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
 }

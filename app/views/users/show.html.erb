@@ -1,47 +1,36 @@
 <!-- app/views/users/show.html.erb -->
 <div class="container">
-<h1><%= @user.first_name %>'s Profile</h1>
-
-<div>
-  <strong>Profile Image:</strong>
-  <% if @user.profile_image.attached? %>
-    <%= image_tag @user.profile_image.variant(resize: '100x100') %>
-  <% else %>
-    <p>No profile image available.</p>
-  <% end %>
-</div>
-
-<div>
-  <strong>Username:</strong> <%= @user.username %>
-</div>
-<div>
-  <strong>First Name:</strong> <%= @user.first_name%>
-</div>
-<div>
+  <h1><%= @user.first_name %>'s Profile</h1>
+  <!--<div>
+    <strong>Profile Image:</strong>
+    <% if @user.profile_image.attached? %>
+      <%= image_tag @user.profile_image.variant(resize: '100x100') %>
+    <% else %>
+      <p>No profile image available.</p>
+    <% end %>
+  </div>-->
+  <div>
+    <strong>Username:</strong> <%= @user.username %>
+  </div>
+  <div>
+    <strong>First Name:</strong> <%= @user.first_name%>
+  </div>
+  <div>
     <strong>Last Name:</strong><%= @user.last_name%>
+  </div>
+  <div>
+    <strong>Email:</strong> <%= @user.email %>
+  </div>
+  <div>
+    <strong>Contact Number:</strong> <%= @user.contact_number %>
+  </div>
+  <div>
+    <strong>Address:</strong> <%= @user.address %>
+  </div>
+  <!-- Add more details as needed -->
+  <%= link_to 'Edit Profile', edit_user_path(@user) %>
 </div>
-<div>
-  <strong>Email:</strong> <%= @user.email %>
-</div>
-
-<div>
-  <strong>Contact Number:</strong> <%= @user.contact_number %>
-</div>
-
-<div>
-  <strong>Address:</strong> <%= @user.address %>
-</div>
-
-
-<!-- Add more details as needed -->
-
-<%= link_to 'Edit Profile', edit_user_path(@user) %>
-
-</div>
-
-
-
-    <!--<div class="container light-style flex-grow-1 container-p-y">
+<!--<div class="container light-style flex-grow-1 container-p-y">
         <h4 class="font-weight-bold py-3 mb-4">
             Account settings
         </h4>
@@ -300,189 +289,100 @@
     </div>-->
 
 
-
 <div class="container light-style flex-grow-1 container-p-y">
-<div class="card overflow-hidden curd">
-        <div class="row no-gutters row-bordered row-border-light mt-3 ms-2 mb-4">
-          <div class="col-md-3 pt-0">
-          <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
-                                    class="d-block ui-w-80">
+  <div class="card overflow-hidden curd">
+    <div class="row no-gutters row-bordered row-border-light mt-3 ms-2 mb-2">
+      <div class="col-md-3 pt-0">
+        <!--<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
+                                    class="d-block ui-w-80">-->
+        <%= render 'user_profile_image', user: @user %>
+      </div>
+      <div class="col-md-9">
+        <div><strong><%= @user.first_name%> &nbsp; <%= @user.last_name%> (age)</strong></div>
+        <div>City</div>
+      </div>
+    </div>
+    <hr>
+    <p class="d-inline-flex gap-1">
+      <div>
+        <a class="btn btn-secondary" data-bs-toggle="collapse" href="#account" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Account
+        </a>
+      </div>
+    </p>
+    <div class="collapse" id="account">
+      <%= render 'user_account', user: @user %>
+    </div>
+
+    <p class="d-inline-flex gap-1">
+      <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Personal Details
+        </a></div>
+    </p>
+
+    <div class="collapse" id="collapseExample">
+      <%= render 'user_personal_details', user: @user %>
+    </div>
+
+    <p class="d-inline-flex gap-1">
+      <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#family" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Family
+        </a></div>
+    </p>
+
+    <div class="collapse" id="family">
+      <%= render 'user_family_details', user: @user %>
+    </div>
+
+    <p class="d-inline-flex gap-1">
+      <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#contact" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Contact Details
+        </a></div>
+    </p>
+
+    <div class="collapse" id="contact">
+      <%= render 'user_contact_details', user: @user %>
+    </div>
+
+    <p class="d-inline-flex gap-1">
+      <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#description" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Description
+        </a></div>
+    </p>
+    <div class="collapse" id="description">
+      <div class="card-body pb-2">
+        <%= render 'user_description', user: @user %>
+        <% if user_signed_in? && @user == current_user %>
+          <div class="text-right mt-3">
+            <%= link_to edit_user_description_path, data: { controller: "edit-user-description" } do %>
+              <button type="button" class="btn btn-danger">Edit</button>
+            <% end %>
           </div>
-          <div class="col-md-9">
-          <div><strong><%= @user.first_name%> &nbsp; <%= @user.last_name%> (age)</strong></div>
-          <div>City</div>
-          </div>
-        </div><hr>
-  <p class="d-inline-flex gap-1">
-    <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapsexample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Account
-    </a></div>
-  </p>
-  <div class="collapse" id="collapsexample">
-                            <div class="card-body media align-items-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt 
-                                    class="d-block ui-w-80">
-                                <div class="media-body ml-4">
-                                    <label class="btn btn-outline-danger">
-                                        Upload new photo
-                                        <input type="file" class="account-settings-fileinput">
-                                    </label> &nbsp;
-                                    <button type="button" class="btn btn-default md-btn-flat">Reset</button>
-                                    <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
-                                </div>
-                            </div>
-                            <hr class="border-light m-0">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label class="form-label">Username</label>
-                                    <input type="text" class="form-control mb-1" value="<%= @user.username %>">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" value="<%= @user.first_name%> <%= @user.last_name%>">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label class="form-label">Bio</label>
-                                    <input type="text" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label mt-4"><strong>E-mail:</strong> <%= @user.email %> </label>
-                                    <!--<input type="text" class="form-control mb-1" value="<%= @user.email %>"> -->
-                                    <!--<div class="alert alert-warning mt-3">
-                                        Your email is not confirmed. Please check your inbox.<br>
-                                        <a href="javascript:void(0)">Resend confirmation</a>
-                                    </div>-->
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label "><strong>Unique ID: </strong></label>
-                                    <!--<input type="text" class="form-control" value="">-->
-                                </div>
-                                
-                            </div>
-  
-</div>
+        <% end %>
+      </div>
+    </div>
 
-<p class="d-inline-flex gap-1">
-    <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Personal Details
-    </a></div>
-  </p>
-  <div class="collapse" id="collapseExample">
-  <div class="card-body pb-2">
-                                
-                                <div class="form-group">
-                                    <label class="form-label">Birthday</label>
-                                    <input type="text" class="form-control" value="May 3, 1995">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Country</label>
-                                    <select class="custom-select">
-                                        <option>India</option>
-                                        <option selected>Canada</option>
-                                        <option>UK</option>
-                                        <option>USA</option>
-                                        <option>China</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <hr class="border-light m-0">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Contacts</h6>
-                                <div class="form-group">
-                                    <label class="form-label">Phone</label>
-                                    <input type="text" class="form-control" value="+0 (123) 456 7891">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Website</label>
-                                    <input type="text" class="form-control" value>
-                                </div>
-                            </div>
-</div>
-
-<p class="d-inline-flex gap-1">
-    <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#family" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Family
-    </a></div>
-  </p>
-  <div class="collapse" id="family">
-  <div class="card-body pb-2">
-                                <div class="form-group">
-                                    <label class="form-label">Mother Name</label>
-                                    <input type="text" class="form-control" value="<%= @user.first_name%> <%= @user.last_name%>">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Father Name</label>
-                                    <input type="text" class="form-control" value="<%= @user.first_name%> <%= @user.last_name%>">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Family Type</label>
-                                    <select class="custom-select">
-                                        <option>Joint Family</option>
-                                        <option selected>Extended Family</option>
-                                        <option>Family with modern values</option>
-                                        <option>Sole-parent family</option>
-                                        <option>Nuclear Family</option>
-                                    </select>
-                                </div>
+    <p class="d-inline-flex gap-1">
+      <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#password" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Change Password
+        </a></div>
+    </p>
+    <div class="collapse" id="password">      
+      <%= render 'user_password', user: @user %>     
+    </div>
+    
   </div>
 </div>
 
-<p class="d-inline-flex gap-1">
-    <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#contact" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Contact Details
-    </a></div>
-  </p>
-  <div class="collapse" id="contact">
-  <div class="card-body pb-2">
-  <h6 class="mb-4">Contacts</h6>
-  <div class="form-group">
-      <label class="form-label">Phone</label>
-      <input type="text" class="form-control" value="+0 (123) 456 7891">
-  </div>
-  <div class="form-group">
-      <label class="form-label">Website</label>
-      <input type="text" class="form-control" value>
-  </div>
-  </div>
-</div>
-
-<p class="d-inline-flex gap-1">
-    <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#description" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Description
-    </a></div>
-  </p>
-  <div class="collapse" id="description">
-  <div class="card-body pb-2">
-  <p class="lead"><%= @user.description %></p>
-                              <div class="text-right mt-3">
-                                <%= link_to edit_user_description_path(@user), data: { controller: "edit-user-description" } do %>
-                                  <button type="button" class="btn btn-danger">Save changes</button>
-                                <% end %>  
-                              </div>
-  </div>
-</div>
-
-<p class="d-inline-flex gap-1">
-    <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#password" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Change Password
-    </a></div>
-  </p>
-  <div class="collapse" id="password">
-  <div class="card-body pb-2">
-  <div class="form-group">
-      <label class="form-label">Current password</label>
-      <input type="password" class="form-control">
-  </div>
-  <div class="form-group">
-      <label class="form-label">New password</label>
-      <input type="password" class="form-control">
-  </div>
-  <div class="form-group">
-      <label class="form-label">Repeat new password</label>
-      <input type="password" class="form-control">
-  </div>
-</div>
-</div>
-</div>
-</div>
+<!--<div class="form-group">
+          <label class="form-label">Current password</label>
+          <input type="password" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label">New password</label>
+          <input type="password" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Repeat new password</label>
+          <input type="password" class="form-control">
+        </div>-->

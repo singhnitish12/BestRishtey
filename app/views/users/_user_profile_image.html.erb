@@ -1,0 +1,17 @@
+<div id="profile_image">
+    <div>
+        <% if user.profile_image.attached? %>
+        <%= image_tag(user.profile_image, class: "d-block ui-w-80 " ) %>
+        <% else %>
+        <img src ="/assets/dummy profile.jpg" alt class="d-block ui-w-80 rounded-circle">
+        <p>No profile image</p>
+        <% end %>
+    </div>
+    <% if user_signed_in? && user == current_user %>
+        <div class="text-right mt-3">
+            <%= link_to edit_user_profile_image_path, data: { controller: "edit-user-profile-image" } do %>
+            <button type="button" class="btn btn-outline-danger">New photo</button>
+            <% end %>
+        </div>
+    <% end %>
+</div>

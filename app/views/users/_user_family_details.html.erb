@@ -1,0 +1,45 @@
+<div id="family-details">
+    <div class="card-body pb-2">
+         <div>
+          <p><strong>Father's Name:</strong> <%= user.father_name %></P>
+          <p><strong>Mother's Name:</strong> <%= user.mother_name %></P>
+          <p><strong>Family lives in:</strong> <%= user.religion %></P>
+          <p><strong>Family type:</strong> <%= user.cast %></P>
+          <p><strong>Father's Occupation:</strong> <%=  %></P>
+          <p><strong>Mother's Occupation:</strong> <%= user.height %></P>
+          <p><strong>Weight:</strong> <%= user.weight %></P>
+          <p><strong>Highest Qualification:</strong> <%= user.highest_qualification %></P>
+          <p><strong>Annual Income:</strong> <%= user.job_packages %></P>
+          <p><strong>Job Location:</strong> <%= user.job_location %></P>
+          <p><strong>Mother Tongue:</strong> <%= user.mother_tongue %></P>
+        </div>
+    
+        <% if user_signed_in? && user == current_user %>
+            <div class="text-right mt-3">
+                <%= link_to edit_user_family_details_path, data: { controller: "edit-user-family-detail" } do %>
+                <button type="button" class="btn btn-danger">Edit</button>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<!--
+<div class="form-group">
+        <label class="form-label">Mother Name</label>
+        <input type="text" class="form-control" value="<%= user.first_name%> <%= user.last_name%>">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Father Name</label>
+        <input type="text" class="form-control" value="<%= user.first_name%> <%= user.last_name%>">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Family Type</label>
+        <select class="custom-select">
+        <option>Joint Family</option>
+        <option selected>Extended Family</option>
+        <option>Family with modern values</option>
+        <option>Sole-parent family</option>
+        <option>Nuclear Family</option>
+        </select>
+    </div>-->

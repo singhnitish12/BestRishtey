@@ -1,0 +1,36 @@
+<div id="contact-details">
+    <div class="card-body pb-2">
+        <div>
+          <p><strong>Address:</strong> <%= user.address %></P>
+          <p><strong>Date of Birth:</strong> <%= user.dob %></P>
+          <p><strong>Religion:</strong> <%= user.religion %></P>
+          <p><strong>Caste:</strong> <%= user.cast %></P>
+          <p><strong>Gotra:</strong> <%=  %></P>
+          <p><strong>Height:</strong> <%= user.height %></P>
+          <p><strong>Weight:</strong> <%= user.weight %></P>
+          <p><strong>Highest Qualification:</strong> <%= user.highest_qualification %></P>
+          <p><strong>Annual Income:</strong> <%= user.job_packages %></P>
+          <p><strong>Job Location:</strong> <%= user.job_location %></P>
+          <p><strong>Mother Tongue:</strong> <%= user.mother_tongue %></P>
+        </div>
+        
+        <% if user_signed_in? && user == current_user %>
+          <div class="text-right mt-3">
+            <%= link_to edit_user_contact_details_path, data: { controller: "edit-user-contact-detail" } do %>
+              <button type="button" class="btn btn-danger">Edit</button>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+</div>
+
+<!--
+<h6 class="mb-4">Contacts</h6>
+        <div class="form-group">
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" value="+0 (123) 456 7891">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Website</label>
+            <input type="text" class="form-control" value>
+        </div>-->

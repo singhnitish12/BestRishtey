@@ -1,0 +1,95 @@
+<%= turbo_frame_tag :remote_modal, target: :_top do %>
+    <div class="modal fade" id="statisBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" data-controller="bs-modal">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Personal Details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <%= form_with model: current_user, url: update_user_personal_details_path, method: :patch do |form| %>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :address, class: "mb-3 mt-3" %>
+                        <%= form.text_field :address, class: "form-control", value: current_user.address %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :dob, "Date of Birth", class: "mb-3 mt-3" %>
+                        <%= form.date_field :dob, class: "form-control", value: current_user.dob %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :religion, "Religion", class: "mb-3 mt-3" %>
+                        <%= form.text_field :religion, class: "form-control", value: current_user.religion %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :cast, "Caste", class: "mb-3 mt-3" %>
+                        <%= form.text_field :cast, class: "form-control", value: current_user.cast %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :height, "Height", class: "mb-3 mt-3" %>
+                        <%= form.text_field :height, class: "form-control", value: current_user.height %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :weight, "Weight", class: "mb-3 mt-3" %>
+                        <%= form.text_field :weight, class: "form-control", value: current_user.weight %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :highest_qualification, "Highest Qualification", class: "mb-3 mt-3" %>
+                        <%= form.text_field :highest_qualification, class: "form-control", value: current_user.highest_qualification %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :job_packages, "Annual Income", class: "mb-3 mt-3" %>
+                        <%= form.text_field :job_packages, class: "form-control", value: current_user.job_packages %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :job_location, "Job Location", class: "mb-3 mt-3" %>
+                        <%= form.text_field :job_location, class: "form-control", value: current_user.job_location %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :mother_tongue, "Mother Tongue", class: "mb-3 mt-3" %>
+                        <%= form.text_field :mother_tongue, class: "form-control", value: current_user.mother_tongue %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                
+                </div>
+                <div class="col-lg-12">
+                
+                </div>
+                <!--<div class="form-group row">
+                    <%= form.label :bio, class: "mb-3 mt-3" %>
+                    <%= form.text_area :bio, class: "form-control" %>
+                </div>-->
+
+            
+            </div>
+        </div>
+        <div class="modal-footer">
+            <%= form.submit 'Save Changes', class: "btn btn-danger", data: { action: 'click->bs-modal#submitEnd' } %>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        <% end %>
+        </div>
+    </div>
+    </div>
+<% end %>
+

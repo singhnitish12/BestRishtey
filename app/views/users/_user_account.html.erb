@@ -1,0 +1,21 @@
+<div id="account_details">
+        <div class="card-body">
+          <div>
+            <p><strong>Name:</strong> <%= user.first_name %> <%= user.last_name %></p>
+            <p><strong>UserName:</strong> <%= user.username %></p>
+            <p><strong>Email:</strong> <%= user.email %></p>
+            <p><strong>Bio:</strong> <%=  %></p>
+            <p><strong>Unique Id:</strong> <%=  %></p>
+          </div>
+
+          <% if user_signed_in? && user == current_user %>
+          <div class="text-right mt-3">
+            <%= link_to edit_user_account_path, data: { controller: "edit-user-account" } do %>
+              <button type="button" class="btn btn-danger">Edit</button>
+            <% end %>
+          </div>
+        <% end %>
+        </div>
+        
+</div>
+

@@ -1,14 +1,7 @@
 <!-- app/views/users/show.html.erb -->
 <div class="profile_container">
   <h1><%= @user.first_name %>'s Profile</h1>
-  <!--<div>
-    <strong>Profile Image:</strong>
-    <% if @user.profile_image.attached? %>
-      <%= image_tag @user.profile_image.variant(resize: '100x100') %>
-    <% else %>
-      <p>No profile image available.</p>
-    <% end %>
-  </div>-->
+  
   <div>
     <strong>Username:</strong> <%= @user.username %>
   </div>
@@ -362,41 +355,14 @@
       </div>
     </div>
 
- <div>
-   <strong>Marital_status: </strong> <%= @user.marital_status%>
- </div>
+    <p class="d-inline-flex gap-1">
+      <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#password" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Change Password
+        </a></div>
+    </p>
 
- <div>
-   <strong>Height(in cm): </strong> <%= @user.height%>
- </div>
+    <div class="collapse" id="password">
+      <%= render 'user_password', user: @user %>
+    </div>
 
- <div>
-   <strong>Weight(in kg): </strong> <%= @user.weight%>
- </div>
-
- <div>
-   <strong>Highest_qualification : </strong> <%= @user.highest_qualification%>
- </div>
-
- <div>
-   <strong> Job_designation : </strong> <%= @user.job_designation%>
- </div>
-
-
- <div>
-   <strong>Job_packages : </strong> <%= @user.job_packages%>
- </div>
-
-
- <div>
-   <strong>Job_location : </strong> <%= @user.job_location%>
- </div>
-
- <div>
-   <strong>Mother_tongue : </strong> <%= @user.mother_tongue%>
- </div>
-
-   <!-- Add more details as needed -->
-  
-   <%= link_to 'Edit Profile', edit_user_path(@user) %>
 </div>

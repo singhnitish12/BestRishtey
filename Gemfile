@@ -57,7 +57,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "letter_opener"
-
+  gem  'pry-rails'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -74,6 +74,5 @@ end
 
 gem 'cssbundling-rails'
 gem 'devise'
-gem 'ruby-vips' 
-gem 'pry'
-gem 'activeadmin'
+
+

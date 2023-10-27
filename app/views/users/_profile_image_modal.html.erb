@@ -21,14 +21,15 @@
                     <div data-controller="previews">
                         <div class="form-group row">
                             <div class="field">
-                                <%= form.label :profile_image, "Profile Image" %>
-                                <%= form.file_field :profile_image, 
+                                <%= form.label :avatar, "Profile Image" %>
+                                <%= form.file_field :avatar, 
                                 direct_upload: true, 
                                 data: { previews_target: "input", action: "change->previews#preview" },
                                 class: "form-control mt-2" %>
                                 
-                                <% if current_user.profile_image.attached? %>
-                                    <%= image_tag current_user.profile_image, data: { previews_target: "preview" }, class: "d-block ui-w-80 mt-2" %>
+                                <% if current_user.avatar.attached? %>
+                                    <%= image_tag current_user.avatar, data: { previews_target: "preview" }, class: "d-block ui-w-80 mt-2" %>
+                             
                                 <% else %>
                                     <%= image_tag "", data: { previews_target: "preview" }, class: "d-block ui-w-80 " %>
                                 <% end %>

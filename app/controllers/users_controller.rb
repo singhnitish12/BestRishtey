@@ -86,6 +86,7 @@ class UsersController < ApplicationController
    end
 
    def update_profile_image
+    
     respond_to do |format|
       if current_user.update(user_params)
         format.turbo_stream { render turbo_stream: turbo_stream.replace('profile_image', partial:'users/user_profile_image', locals: { user: current_user })}
@@ -118,9 +119,9 @@ class UsersController < ApplicationController
   
     def user_params
         params.require(:user).permit(
-          :first_name, :last_name, :contact_number, :address, :username, :email, :password, :password_confirmation,
-          :dob, :father_name, :mother_name, :religion, :cast, :marital_status, :height, :weight,
-          :highest_qualification, :job_packages, :job_designation, :job_location,:profile_image,:mother_tongue,:bride_or_groom,:operator,:unique_id,:age 
+          :email, :created_at, :updated_at, :first_name, :last_name, :contact_number, :address, :username, :password, :password_confirmation,:dob, :father_name, :mother_name, :religion, :cast , :height, :weight, :highest_qualification, :job_packages, :job_location, :mother_tongue, :description, :age,
+           :current_password ,:avatar
+        
         )
       end
   end

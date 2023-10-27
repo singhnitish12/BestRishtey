@@ -1,7 +1,7 @@
 <div id="profile_image">
     <div>
-        <% if user.profile_image.attached? %>
-        <%= image_tag(user.profile_image, class: "d-block ui-w-80 " ) %>
+        <% if user.avatar.present?%>
+        <%= image_tag(user.avatar, class: "d-block ui-w-80 " ) %>
         <% else %>
         <img src ="/assets/dummy profile.jpg" alt class="d-block ui-w-80 rounded-circle">
         <p>No profile image</p>

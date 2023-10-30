@@ -3,7 +3,8 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!, only: %i[edit_description update_description edit_account update_account edit_personal_details update_personal_details edit_family_details update_family_details edit_contact_details update_contact_details edit_pass update_pass edit_profile_image update_profile_image] 
     before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
+    
+
     def show
       # @user is already set by the before_action
     end
@@ -123,6 +124,9 @@ class UsersController < ApplicationController
            :current_password ,:avatar
         
         )
-      end
+    end
+
+    
+
   end
   

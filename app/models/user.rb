@@ -1,7 +1,13 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # devise :database_authenticatable, 
+  #        :recoverable, :rememberable, :validatable
+  
+  enum role: { user: 0, admin: 1 }
   #attr_accessor :first_name, :dob
-  before_validation :calculate_and_set_age, on: :create
-  before_validation :generate_unique_code, on: :create
+  # before_validation :calculate_and_set_age, on: :create
+  # before_validation :generate_unique_code, on: :create
   after_create :after_confirmation
   
   # Include default devise modules. Others available are:
@@ -11,17 +17,17 @@ class User < ApplicationRecord
          :confirmable, :trackable 
          
         
-  validates :username, presence: true, uniqueness: true
+  # validates :username, presence: true, uniqueness: true
   has_one_attached :avatar
 
   
   attr_accessor :login
-  validates :first_name, presence: true, length: { maximum: 255 }
-  validates :dob, presence: true
-  validate :dob_should_be_greater_than_18_years
-  validates :last_name, presence: true, length: { maximum: 255 }
-  validates :contact_number, presence: true, length: { maximum: 20 }
-  validates :address, presence: true, length: { maximum: 1000 }
+  # validates :first_name, presence: true, length: { maximum: 255 }
+  # validates :dob, presence: true
+  # validate :dob_should_be_greater_than_18_years
+  # validates :last_name, presence: true, length: { maximum: 255 }
+  # validates :contact_number, presence: true, length: { maximum: 20 }
+  # validates :address, presence: true, length: { maximum: 1000 }
   
   
 

@@ -1,5 +1,5 @@
 <%= turbo_frame_tag :remote_modal, target: :_top do %>
-    <div class="modal fade" id="statisBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" data-controller="bs-modal">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" data-controller="bs-modal">
     <div class="modal-dialog modal-lg modal-dialog-centered ">
         <div class="modal-content">
         <div class="modal-header">
@@ -17,7 +17,7 @@
                             <%= form.file_field :profile_image, class: "form-control mt-2" %> <input class="btn btn-outline-secondary mt-2" type="reset" value="Reset"></button>
                         </div>
                     </div>-->
-                    <!--<%= render "image_preview", form: form %>-->
+                    <%#= render "image_preview", form: form %>
                     <div data-controller="previews">
                         <div class="form-group row">
                             <div class="field">
@@ -31,7 +31,7 @@
                                     <%= image_tag current_user.avatar, data: { previews_target: "preview" }, class: "d-block ui-w-80 mt-2" %>
                              
                                 <% else %>
-                                    <%= image_tag "", data: { previews_target: "preview" }, class: "d-block ui-w-80 " %>
+                                    <%= image_tag "", data: { previews_target: "preview" }, class: "d-block ui-w-80 mt-2" %>
                                 <% end %>
                                 
                                 <input class="btn btn-outline-secondary mt-2" type="reset" value="Reset" data-action="click->previews#reset"></button>

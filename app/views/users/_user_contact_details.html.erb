@@ -12,6 +12,11 @@
           <p><strong>Annual Income:</strong> <%= user.job_packages %></P>
           <p><strong>Job Location:</strong> <%= user.job_location %></P>
           <p><strong>Mother Tongue:</strong> <%= user.mother_tongue %></P>
+          <p><strong>Contact Number:</strong> <%= user.contact_number %></P>
+          <p><strong>Alternate Contact Number:</strong> <%= user.alternate_contact_number %></P>
+          <p><strong>Email:</strong> <%= user.email %></P>
+          <p><strong>Social media Id:</strong> <%= user.social_media_id %></P>
+
         </div>
         
         <% if user_signed_in? && user == current_user %>

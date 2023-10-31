@@ -12,6 +12,12 @@
           <p><strong>Annual Income:</strong> <%= user.job_packages %></P>
           <p><strong>Job Location:</strong> <%= user.job_location %></P>
           <p><strong>Mother Tongue:</strong> <%= user.mother_tongue %></P>
+          <p><strong>Family lives in:</strong> <%= user.family_lives_in %></P>
+          <p><strong>Family type:</strong> <%= user.family_type %></P>
+          <p><strong>Father's Occupation:</strong> <%= user.fathers_occupation %></P>
+          <p><strong>Mother's Occupation:</strong> <%= user.mothers_occupation %></P>
+          <p><strong>Siblings:</strong> <%= user.siblings %></P>
+          
         </div>
     
         <% if user_signed_in? && user == current_user %>

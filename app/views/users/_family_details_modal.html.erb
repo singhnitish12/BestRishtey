@@ -1,5 +1,5 @@
 <%= turbo_frame_tag :remote_modal, target: :_top do %>
-    <div class="modal fade" id="statisBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" data-controller="bs-modal">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" data-controller="bs-modal">
     <div class="modal-dialog modal-lg modal-dialog-centered ">
         <div class="modal-content">
         <div class="modal-header">
@@ -19,18 +19,24 @@
                             <%= form.label :last_name, class: "mb-3 mt-3" %>
                             <%= form.text_field :last_name, class: "form-control", value: current_user.last_name %>
                         </div>
+                        <%= form.label :father_name, "Father's Name", class: "mb-3 mt-3" %>
+                        <%= form.text_field :father_name, class: "form-control", value: current_user.father_name %>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="form-group row">
                         <%= form.label :address, class: "mb-3 mt-3" %>
                         <%= form.text_field :address, class: "form-control", value: current_user.address %>
+                        <%= form.label :mother_name, "Mother's Name", class: "mb-3 mt-3" %>
+                        <%= form.text_field :mother_name, class: "form-control", value: current_user.mother_name %>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="form-group row">
                         <%= form.label :email, class: "mb-3 mt-3" %>
                         <%= form.email_field :email, class: "form-control", value: current_user.email %>
+                        <%= form.label :family_lives_in, "Family Live's in", class: "mb-3 mt-3" %>
+                        <%= form.text_field :family_lives_in, class: "form-control", value: current_user.family_lives_in %>
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -43,6 +49,28 @@
                     <%= form.label :bio, class: "mb-3 mt-3" %>
                     <%= form.text_area :bio, class: "form-control" %>
                 </div>-->
+                        <%= form.label :family_type, "Family Type", class: "mb-3 mt-3" %>
+                        <%= form.text_field :family_type, class: "form-control", value: current_user.family_type %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :fathers_occupation, "Father's Occupation", class: "mb-3 mt-3" %>
+                        <%= form.text_field :fathers_occupation, class: "form-control", value: current_user.fathers_occupation %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :mothers_occupation, "Mother's Occupation", class: "mb-3 mt-3" %>
+                        <%= form.text_field :mothers_occupation, class: "form-control", value: current_user.mothers_occupation %>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group row">
+                        <%= form.label :siblings, "Sibling's", class: "mb-3 mt-3" %>
+                        <%= form.text_field :siblings, class: "form-control", value: current_user.siblings %>
+                    </div>
+                </div>
 
             
             </div>

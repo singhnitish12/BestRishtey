@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  # Define Devise routes with custom controllers
+  
+
   devise_for :users, controllers: {
-    sessions: 'users/sessions',                         
+    sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations',
     confirmations: 'users/confirmations'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
       get '/users/sign_out' => 'users/sessions#destroy'
     end
 
+  
   root 'home#index'
   resources :users, only: [:show, :edit, :update, :destroy]
   get '/confirmation_pending' => 'home#after_registration_path'

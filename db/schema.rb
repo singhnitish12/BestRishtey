@@ -10,21 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_30_100820) do
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
-    t.text "body"
-    t.string "resource_type"
-    t.integer "resource_id"
-    t.string "author_type"
-    t.integer "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2023_10_30_065952) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -90,8 +76,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_30_100820) do
     t.string "mother_tongue"
     t.text "description"
     t.integer "age"
+    t.integer "role"
     t.string "unique_id"
-    t.integer "role", default: 0
+    t.string "gotra"
+    t.string "dietary_habit"
+    t.string "family_type"
+    t.string "family_lives_in"
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.integer "siblings"
+    t.string "mothers_occupation"
+    t.string "fathers_occupation"
+    t.text "bio"
+    t.float "weight"
+    t.string "social_media_id"
+    t.string "alternate_contact_number"
+    t.float "height"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

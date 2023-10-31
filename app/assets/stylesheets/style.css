@@ -561,6 +561,7 @@ i {
     overflow: hidden;
     z-index: 1;
 }
+
 .profile_container{
     display: flex;
     justify-content: center;

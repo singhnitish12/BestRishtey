@@ -4,19 +4,17 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Using Devise"
+  config.site_title = "Best Rishtey"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
-  #
+  
   # config.site_title_link = "/"
 
   # config/initializers/active_admin.rb
    config.authorization_adapter = ActiveAdmin::CanCanAdapter
 
-   config.on_unauthorized_access = :access_denied
-
-
+  #  config.on_unauthorized_access = :access_denied
 
 
   # Set an optional image to be displayed for the header
@@ -55,7 +53,7 @@ ActiveAdmin.setup do |config|
   # will namespace routes to /hello_world/*
   #
   # To set no namespace by default, use:
-  #   config.default_namespace = false
+   # config.default_namespace = false
   #
   # Default:
   # config.default_namespace = :admin
@@ -79,7 +77,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  config.authentication_method = :authenticate_user!
+   config.authentication_method = :authenticate_user!
 
   # == User Authorization
   #

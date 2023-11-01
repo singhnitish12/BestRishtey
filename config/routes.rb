@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  root to: 'home#index' 
+   
+
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -7,16 +10,20 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     confirmations: 'users/confirmations'
   }
-   # Define Active Admin routes
-   ActiveAdmin.routes(self)
-     
-    # Specify a custom sign-out path
+   
+     #Specify a custom sign-out path
     devise_scope :user do
       get '/users/sign_out' => 'users/sessions#destroy'
     end
 
+     
+   # Define Active Admin routes
+   ActiveAdmin.routes(self)  
+
+   
+
+   
   
-  root 'home#index'
   resources :users, only: [:show, :edit, :update, :destroy]
   get '/confirmation_pending' => 'home#after_registration_path'
 

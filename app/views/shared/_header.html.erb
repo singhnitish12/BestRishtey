@@ -18,6 +18,11 @@
             <li class="nav-item">
            <% if user_signed_in? %>
              <li>
+               <% if current_user.role == "admin" %>
+                <%= link_to 'Admin site', "/admin/dashboard", class: 'nav-link active' %>
+               <% end %>
+            </li>
+             <li>
                <%= link_to current_user.username, user_path(current_user), class: "nav-link active" %>
              </li>
              <li>

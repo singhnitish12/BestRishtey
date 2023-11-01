@@ -77,5 +77,5 @@ gem 'devise'
 gem 'activeadmin'
 gem 'ransack', '~> 3.2', '>= 3.2.1'
 gem 'cancancan'
-
+gem 'pry'
 

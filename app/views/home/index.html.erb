@@ -60,29 +60,49 @@
       </div>
     </div>
     <div class="row mt-40 ms-4 me-4">
-      <div class="col-md-4 text-center">
-        <a class="register" href=""></a>
-        <br>
-        <div class="feature">
-          <strong><a id="sign_up_link" class="" href="">Register</a></strong>
-          <div>Register for free &amp; make your Matrimony Profile</div>
-        </div>
-      </div>
-      <div class="col-md-4 text-center">
-        <a class="browse" href=""></a><br>
-        <div class="feature">
-          <strong><a id="sign_up_link" class="" href="">Browse &amp; Choose</a></strong>
-          <div>View Profiles</div>
-        </div>
-      </div>
-      <div class="col-md-4 text-center">
-        <a class="connect" href=""></a><br>
-        <div class="feature">
-          <strong><a id="sign_up_link" class="" href="">Connect &amp; Interact</a></strong>
-          <div>Connect to your choice</div>
-        </div>
+  <% if user_signed_in? %>
+    <!-- User is signed in, show Browse and Connect -->
+    <div class="col-md-6 text-center">
+      <a class="browse" href=""></a><br>
+      <div class="feature">
+        <strong><a id="sign_up_link" class="" href="">Browse &amp; Choose</a></strong>
+        <div>View Profiles</div>
       </div>
     </div>
+    <div class="col-md-6 text-center">
+      <a class="connect" href=""></a><br>
+      <div class="feature">
+        <strong><a id="sign_up_link" class="" href="">Connect &amp; Interact</a></strong>
+        <div>Connect to your choice</div>
+      </div>
+    </div>
+  <% else %>
+    <!-- User is not signed in, show Register, Browse, and Connect -->
+    <div class="col-md-4 text-center">
+      <a class="register" href="/users/sign_up"></a>
+      <br>
+      <div class="feature">
+        <strong><a id="sign_up_link" class="" href="/users/sign_up">Register</a></strong>
+        <div>Register for free &amp; make your Matrimony Profile</div>
+      </div>
+    </div>
+    <div class="col-md-4 text-center">
+      <a class="browse" href=""></a><br>
+      <div class="feature">
+        <strong><a id="sign_up_link" class="" href="">Browse &amp; Choose</a></strong>
+        <div>View Profiles</div>
+      </div>
+    </div>
+    <div class="col-md-4 text-center">
+      <a class="connect" href=""></a><br>
+      <div class="feature">
+        <strong><a id="sign_up_link" class="" href="">Connect &amp; Interact</a></strong>
+        <div>Connect to your choice</div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
   </section>
 
   <section class="why common-padding  relative">
@@ -114,7 +134,58 @@
         </div>
       </div>
     </div>
-    <div class="row ms-4 me-4 mt-5 ">
+    <% if user_signed_in?%>
+     <div class="row ms-4 me-4 mt-5 ">
+       <% @users.each do |user| %>
+        <div class="col-lg-5 text-center">
+         <% if user.avatar.present? %>
+           <%= image_tag(user.avatar, class: "imag") %>
+         <% else %>
+             <%= image_tag("/assets/dummy profile.jpg", class: "imag") %>
+          <% end %>
+          <h2 class="mt-4 "><%= user.first_name %> <%= user.last_name %>(<%= user.age %>)</h2>
+          <h4 class="mt-1"><%= user.city %>, <%= user.country %></h4>
+        </div>
+       <div class="col-lg-7">
+          <div class="row">
+            <div class="col-md-4">
+             <strong>Profile PortFolio</strong><br>
+               <ul>
+                 <li><b>UniqueId:</b> <%= user.unique_id %></li>
+                 <li><b>DOB:</b> <%= user.dob %></li>
+                 <li><b>Religion:</b> <%= user.religion %></li>
+                 <li><b>Caste:</b> <%= user.cast %></li>
+                 <li><b>Gotra:</b> <%= user.gotra %></li>
+                 <li><b>Height:</b> <%= user.height %></li>
+               </ul>
+            </div>
+            <div class="col-md-4">
+              <strong>Overview</strong><br>
+              <ul>
+                 <li><b>Highest Qualification:</b> <%= user.highest_qualification %></li>
+                 <li><b>Job Profile:</b> <%= user.job_designation %></li>
+                 <li><b>Annual Income:</b> <%= user.job_packages %></li>
+                 <li><b>Mother Tongue:</b> <%= user.mother_tongue %></li>
+                 <li><b>Dietary Habits:</b> <%= user.dietary_habit %></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <strong>Family</strong><br>
+              <ul>
+               <li><b>Father:</b> <%= user.father_name %></li>
+               <li><b>Mother:</b> <%= user.mother_name %></li>
+               <li><b>Siblings:</b> <%= user.siblings %></li>
+               <li><b>Family lives in:</b> <%= user.family_lives_in %></li>
+               <li><b>Family Type:</b> <%= user.family_type %></li>
+                <a href="#" class="know-more-button">Know More</a>
+              </ul>
+            </div>
+         </div>
+       </div><hr>
+      <%end%>
+     </div>
+    <% else %>
+     <div class="row ms-4 me-4 mt-5 ">
       <div class="col-lg-5 text-center">
         <img src="/assets/man.jpg" class="imag">
         <h2 class="mt-4 ">Sahil Shakya(26)</h2>
@@ -160,9 +231,8 @@
         </div>
       </div>
       
-    </div><hr>
-
-    <div class="row ms-4 me-4 mt-5 ">
+     </div><hr>
+      <div class="row ms-4 me-4 mt-5 ">
       <div class="col-lg-5 text-center">
         <img src="/assets/women2.jpg" class="imag">
         <h2 class="mt-4">Aisha(25)</h2>
@@ -207,9 +277,8 @@
         </div>
       </div>
 
-    </div><hr>
-
-    <div class="row ms-4 me-4 mt-5 ">
+     </div><hr>
+       <div class="row ms-4 me-4 mt-5 ">
       <div class="col-lg-5 text-center">
         <img src="/assets/women1.jpg" class="imag">
         <h2 class="mt-4">Muskan(23)</h2>
@@ -254,7 +323,8 @@
         </div>
       </div>
       
-    </div>
+     </div>
+    <%end%>
   </section>
 
   <section class="story common-padding text-center relative">
@@ -381,8 +451,10 @@
           </div>
       </div>
   </div>
-  
- <%= link_to 'Sign Up', new_user_registration_path, class: 'know-more-button mt-5' %> <span class="ms-3">here to make your story.</span>
+<% if !user_signed_in? %>
+    <a href="/users/sign_up" class="know-more-button mt-5">Sign Up</a>
+<% end %>
+ <span class="ms-3">here to make your story.</span>
 
   <!-- <div class="png-2"><img src="/assets/services-bg-2.png"></div> -->
   </section>

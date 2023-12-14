@@ -1,14 +1,11 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  # devise :database_authenticatable, 
-  #        :recoverable, :rememberable, :validatable
+  
   
   enum role: { user: 0, admin: 1 }
   #attr_accessor :first_name, :dob
-  # before_validation :calculate_and_set_age, on: :create
-  # before_validation :generate_unique_code, on: :create
-  
+  before_validation :calculate_and_set_age, on: :create
+  before_validation :generate_unique_code, on: :create
+ 
   before_validation :calculate_and_set_age, on: :create
   before_validation :generate_unique_code, on: :create
   after_create :after_confirmation
@@ -81,6 +78,11 @@ class User < ApplicationRecord
       errors.add(:dob, "should be greater than 18 years ago")
     end
   end
+  
+  def encrypt_password
+    self.password = BCrypt::Password.create(password) if password.present?
+  end
+
 
   def calculate_and_set_age
     # Calculate the age in years

@@ -21,8 +21,8 @@ Rails.application.routes.draw do
    ActiveAdmin.routes(self)  
 
    
-
    
+   resources :home, only: [:index]
   
   resources :users, only: [:show, :edit, :update, :destroy]
   get '/confirmation_pending' => 'home#after_registration_path'

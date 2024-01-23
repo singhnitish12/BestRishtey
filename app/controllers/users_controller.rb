@@ -5,9 +5,13 @@ class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
   
     def show
+      @q = User.ransack(params[:q])
+      @users = @q.result(distinct: true)
       # @user is already set by the before_action
     end
   
+
+   
    def edit_description
     #@user = User.find(params[:id])
    end
@@ -94,9 +98,9 @@ class UsersController < ApplicationController
     end
    end
   
-    # def edit
-    #   # @user is already set by the before_action
-    # end
+    def edit
+      
+    end
   
     # def update
     #   if @user.update(user_params)
@@ -127,4 +131,5 @@ class UsersController < ApplicationController
         )
       end
   end
+
   

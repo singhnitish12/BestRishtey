@@ -1,4 +1,4 @@
-<!-- app/views/users/show.html.erb -->
+<!-- app/views/users/show.html.erb 
 <div class="profile_container">
   <h1><%= @user.first_name %>'s Profile</h1>
   
@@ -19,10 +19,10 @@
   </div>
   <div>
     <strong>Address:</strong> <%= @user.address %>
-  </div>
-  <!-- Add more details as needed -->
+  </div>  
+  Add more details as needed 
   <%= link_to 'Edit Profile', edit_user_path(@user) %>
-</div>
+</div> -->
 <!--<div class="container light-style flex-grow-1 container-p-y">
         <h4 class="font-weight-bold py-3 mb-4">
             Account settings
@@ -281,93 +281,157 @@
         </div>
     </div>-->
 
-<div class="container light-style flex-grow-1 container-p-y">
-    <div class="progress my-2" aria-label="Animated striped example" >
-        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="<%= @user.profile_completion_percentage.to_i %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @user.profile_completion_percentage.to_i %>%"><%= @user.profile_completion_percentage.to_i %>%
-        </div>
-    </div>
-</div>
-<div class="container light-style flex-grow-1 container-p-y">
-  <div class="card overflow-hidden curd">
-    <div class="row no-gutters row-bordered row-border-light mt-3 ms-2 mb-2">
-      <div class="col-md-3 pt-0">
-        <!--<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
-                                    class="d-block ui-w-80">-->
-        <%= render 'user_profile_image', user: @user %>
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Profile</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .profile-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      border: 1px solid #e1e1e1;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-header {
+      padding: 20px;
+      border-bottom: 1px solid #e1e1e1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-info {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .profile-info h2 {
+      margin-bottom: 5px;
+    }
+
+    .profile-info p {
+      color: #666;
+    }
+
+    .profile-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .profile-actions button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .profile-actions i {
+      font-size: 24px;
+    }
+
+    .profile-posts {
+      display: flex;
+      overflow-x: auto; /* Add horizontal scrollbar if needed */
+      padding: 20px;
+    }
+
+    .post {
+      margin-right: 10px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .post img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="profile-container mt-5">
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <!-- Profile Image -->
+      <div class="profile-image mt-3">
+        <% if @user.avatar.present? %>
+           <%= image_tag(@user.avatar, class: "imag") %>
+         <% else %>
+             <%= image_tag("/assets/dummy profile.jpg", class: "imag") %>
+          <% end %>
       </div>
-      <div class="col-md-9">
-        <div><strong><%= @user.first_name%> &nbsp; <%= @user.last_name%> (<%= @user.age %>) </strong></div>
-        <div><%= @user.address %></div>
+      <!-- Profile Info -->
+      <div class="profile-info mt-4">
+       <h6>UserName: <%= @user.username %></p>
+        <p>Email: <%= @user.email %></p>
+       <p>Location: <%= @user.city %></p>
       </div>
+      <!-- Profile Actions (Follow, Message, etc.) -->
+     
+      <div class="profile-actions ">
+          <button><i class="fas fa-plus-circle"></i> Follow</button>
+          <button><i class="fas fa-envelope"></i> Message</button>
+         <%= link_to edit_user_path(current_user) do %>
+            <button><i class="fas fa-cog"></i></button>
+         <% end %>
+     </div>
     </div>
-    <hr>
-    <p class="d-inline-flex gap-1">
-      <div>
-        <a class="btn btn-secondary" data-bs-toggle="collapse" href="#account" role="button" aria-expanded="false" aria-controls="collapseExample">
-          Account
-        </a>
+
+    <!-- Profile Posts -->
+    <div class="profile-posts">
+      <!-- Sample Posts (Replace with your actual posts) -->
+      <div class="post">
+        <% if @user.avatar.present? %>
+           <%= image_tag(@user.avatar, class: "imag") %>
+         <% else %>
+             <%= image_tag("/assets/dummy profile.jpg", class: "imag") %>
+          <% end %>
+       
       </div>
-    </p>
-    <div class="collapse" id="account">
-      <%= render 'user_account', user: @user %>
+      <!-- Add more posts as needed -->
     </div>
+  </div>
 
-    <p class="d-inline-flex gap-1">
-      <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-          Personal Details
-        </a></div>
-    </p>
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
 
-    <div class="collapse" id="collapseExample">
-      <%= render 'user_personal_details', user: @user %>
-    </div>
 
-    <p class="d-inline-flex gap-1">
-      <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#family" role="button" aria-expanded="false" aria-controls="collapseExample">
-          Family
-        </a></div>
-    </p>
 
-    <div class="collapse" id="family">
-      <%= render 'user_family_details', user: @user %>
-    </div>
 
-    <p class="d-inline-flex gap-1">
-      <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#contact" role="button" aria-expanded="false" aria-controls="collapseExample">
-          Contact Details
-        </a></div>
-    </p>
 
-    <div class="collapse" id="contact">
-      <%= render 'user_contact_details', user: @user %>
-    </div>
 
-    <p class="d-inline-flex gap-1">
-      <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#description" role="button" aria-expanded="false" aria-controls="collapseExample">
-          Description
-        </a></div>
-    </p>
-    <div class="collapse" id="description">
-      <div class="card-body pb-2">
-        <%= render 'user_description', user: @user %>
-        <% if user_signed_in? && @user == current_user %>
-          <div class="text-right mt-3">
-            <%= link_to edit_user_description_path, data: { controller: "edit-user-description" } do %>
-              <button type="button" class="btn btn-danger">Edit</button>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
 
-    <p class="d-inline-flex gap-1">
-      <div><a class="btn btn-secondary" data-bs-toggle="collapse" href="#password" role="button" aria-expanded="false" aria-controls="collapseExample">
-          Change Password
-        </a></div>
-    </p>
-
-    <div class="collapse" id="password">
-      <%= render 'user_password', user: @user %>
-    </div>
-
-</div>

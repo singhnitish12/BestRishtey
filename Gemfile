@@ -29,9 +29,13 @@ gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
+gem 'country_select'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
+
+gem 'faker'
+
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -75,7 +79,9 @@ end
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'activeadmin'
-gem 'ransack', '~> 3.2', '>= 3.2.1'
+#gem 'ransack', '~> 3.2', '>= 3.2.1'
 gem 'cancancan'
 gem 'pry'
 
+gem 'ransack'
+gem 'kaminari'

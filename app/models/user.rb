@@ -8,7 +8,7 @@ class User < ApplicationRecord
  
   before_validation :calculate_and_set_age, on: :create
   before_validation :generate_unique_code, on: :create
-  after_create :after_confirmation
+  after_commit :after_confirmation, on: :create
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

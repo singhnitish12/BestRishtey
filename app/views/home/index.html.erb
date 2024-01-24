@@ -1,6 +1,5 @@
-
 <body>
-  
+ 
   <div class="poster">
   </div>
 
@@ -167,6 +166,7 @@
                  <li><b>Annual Income:</b> <%= user.job_packages %></li>
                  <li><b>Mother Tongue:</b> <%= user.mother_tongue %></li>
                  <li><b>Dietary Habits:</b> <%= user.dietary_habit %></li>
+                 <li><b>Email:</b> <%= user.email %></li>
               </ul>
             </div>
             <div class="col-md-4">
@@ -183,6 +183,7 @@
          </div>
        </div><hr>
       <%end%>
+      <%= paginate @users %>
      </div>
     <% else %>
      <div class="row ms-4 me-4 mt-5 ">

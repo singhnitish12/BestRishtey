@@ -52,10 +52,15 @@
               <a class="nav-link active" href="#">Help</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-danger" type="submit">Search</button>
-          </form>
+        <% if defined?(@q) %>
+         <%= search_form_for @q, url: home_index_path, method: :get do |f| %>
+          <%= f.label :username_or_first_name_cont, "Name or Username" %>
+           <%= f.search_field :username_or_first_name_cont %>
+
+           <%= f.submit "Search" %>
+         <% end %>
+        <% end %>
+          
         </div>
       </div>
     </nav>

@@ -77,7 +77,8 @@ Rails.application.configure do
     user_name: ENV['EMAIL_USER_NAME'],
     password: ENV['EMAIL_PASSWORD'],
     authentication: :plain,
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    read_timeout: 30 # Set a higher read timeout value in seconds
   }
 
   config.action_mailer.perform_deliveries = true

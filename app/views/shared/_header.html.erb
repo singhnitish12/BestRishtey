@@ -1,67 +1,74 @@
- <header class="head">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <!--<a class="navbar-brand" href="landing.html"><strong>𝓑𝓮𝓼𝓽𝓡𝓲𝓼𝓱𝓽𝓮𝔂</strong> 
-          <img src="/images/BestRishtey.png" alt="Logo" width="100" height="100"> 
-        </a>-->
-        <strong><%= link_to '𝓑𝓮𝓼𝓽𝓡𝓲𝓼𝓱𝓽𝓮𝔂', root_path, class: 'navbar-brand' %></strong>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <!--<a class="nav-link active" aria-current="page" href="landing.html">Home</a>-->
-              <%= link_to 'Home', root_path, class: 'nav-link active' %>
-            </li>
-            <li class="nav-item">
-           <% if user_signed_in? %>
-             <li>
-               <% if current_user.role == "admin" %>
-                <%= link_to 'Admin site', "/admin/dashboard", class: 'nav-link active' %>
-               <% end %>
-            </li>
-             <li>
-               <%= link_to current_user.username, user_path(current_user), class: "nav-link active" %>
-             </li>
-             <li>
-               <%= link_to 'Sign Out', destroy_user_session_path, class: "nav-link active", data: {turbo_method: :delete} %>
-             </li>
-           <% else %>
-             <li>
-               <%= link_to 'Sign In', new_user_session_path, class: "nav-link active" %> 
-             </li>
-           <% end %>
-           </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Help</a>
-            </li>
-          </ul>
-        <% if defined?(@q) %>
-         <%= search_form_for @q, url: home_index_path, method: :get do |f| %>
-          <%= f.label :username_or_first_name_cont, "Name or Username" %>
-           <%= f.search_field :username_or_first_name_cont %>
+<header class="head">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <strong><%= link_to '𝓑𝓮𝓼𝓽𝓡𝓲𝓼𝓱𝓽𝓮𝔂', root_path, class: 'navbar-brand' %></strong>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to 'Home', root_path, class: 'nav-link active me-2' %>
+          </li>
+          <% if user_signed_in? %>
+            <% if current_user.role == "admin" %>
+              <li>
+                <%= link_to 'Admin site', "/admin/dashboard", class: 'nav-link active me-2' %>
+              </li>
+            <% end %>
 
-           <%= f.submit "Search" %>
-         <% end %>
+            <li>
+              <%= link_to 'Sign Out', destroy_user_session_path, class: "nav-link active me-2", data: {turbo_method: :delete} %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to 'Sign In', new_user_session_path, class: "nav-link active me-2" %> 
+            </li>
+          <% end %>
+
+          <li class="nav-item dropdown me-2">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item me-2">
+            <a class="nav-link active" href="#">
+              <%= image_tag "/assets/messenger.png", class: "img-fluid rounded-circle profile-photo", style: "width: 30px; height: 30px;" %>
+            </a>
+          </li>
+        <% if user_signed_in? %>
+          <li class="me-2">
+            <%= link_to user_path(current_user), class: "nav-link active" do %>
+              <% if current_user.avatar.present? %>
+                <%= image_tag current_user.avatar, alt: "Profile Photo", class: "img-fluid rounded-circle profile-photo", style: "width: 30px; height: 30px;" %>
+              <% else %>
+                <%= image_tag "/assets/avatar.png", class: "img-fluid rounded-circle profile-photo", style: "width: 30px; height: 30px;" %>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>  
+        </ul>
+
+        <% if defined?(@q) %>
+          <%= search_form_for @q, url: home_index_path, method: :get do |f| %>
+            <%= f.label :username_or_first_name_cont, "Name or Username" %>
+            <%= f.search_field :username_or_first_name_cont %>
+
+            <%= f.submit "Search" %>
+          <% end %>
         <% end %>
-          
-        </div>
       </div>
-    </nav>
- </header>
+    </div>
+  </nav>
+</header>

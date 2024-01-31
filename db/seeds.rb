@@ -1,8 +1,5 @@
 require 'faker'
 
-# Clear existing data
-# User.destroy_all
-
 # Helper method to generate a random date of birth within a given range
 def random_date_of_birth(from: 30.years.ago, to: 18.years.ago)
   Faker::Date.between(from: from, to: to)
@@ -23,6 +20,20 @@ def random_family_type
   ['Nuclear', 'Joint'].sample
 end
 
+def random_religion
+  ['Christianity', 'Islam', 'Hinduism', 'Buddhism', 'Other'].sample
+end
+
+# Helper method to generate a random gender
+def random_gender
+  [ 'Groom', 'Bride', 'Other' ].sample  
+end
+
+def random_photo_filename
+  ['/assets/images/nikki.jpeg', '/assets/images/abhi.jpg', '/assets/images/rohit.jpeg', '/assets/images/abhijeet.jpeg'].sample
+end
+
+
 # Generate 100 dummy profiles
 100.times do
   user = User.new(
@@ -39,7 +50,7 @@ end
     dob: random_date_of_birth,
     father_name: Faker::Name.first_name,
     mother_name: Faker::Name.first_name,
-    religion: Faker::Lorem.word,
+    religion: random_religion,
     cast: Faker::Lorem.word,
     height: Faker::Number.between(from: 150, to: 190),
     weight: Faker::Number.between(from: 40, to: 120),
@@ -64,7 +75,9 @@ end
     fathers_occupation: Faker::Lorem.word,
     social_media_id: Faker::Lorem.word,
     alternate_contact_number: Faker::PhoneNumber.phone_number,
-    confirmed_at: Time.current
+    confirmed_at: Time.current,
+    gender: random_gender,
+    avatar: random_photo_filename
   )
 
   user.skip_confirmation_notification!

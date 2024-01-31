@@ -1,5 +1,48 @@
 <body>
- 
+   
+ <div class="mt-5">
+  <%= form_with(url: home_index_path, method: "get", class: "filter-form") do |form| %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= form.number_field "q[age_gteq]", class: "form-control", placeholder: "Minimum Age" %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="field">
+          <%= form.number_field "q[age_lteq]", class: "form-control", placeholder: "Maximum Age" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= form.label "q[gender_eq]", "Gender" %>
+          <%= form.select "q[gender_eq]", options_for_select([['', 'Select Gender'], ['Groom', 'Groom'], ['Bride', 'Bride'], ['Other', 'Other']]), { include_blank: true }, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="field">
+          <%= form.label "q[religion_eq]", "Religion" %>
+          <%= form.select "q[religion_eq]", options_for_select([['', 'Select Religion'], ['Christianity', 'Christianity'], ['Islam', 'Islam'], ['Hinduism', 'Hinduism'], ['Buddhism', 'Buddhism'], ['Other', 'Other']]), { include_blank: true }, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Filter", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
   <div class="poster">
   </div>
 
@@ -156,6 +199,7 @@
                  <li><b>Caste:</b> <%= user.cast %></li>
                  <li><b>Gotra:</b> <%= user.gotra %></li>
                  <li><b>Height:</b> <%= user.height %></li>
+                 <li><b>Gender:</b> <%= user.gender%></li>
                </ul>
             </div>
             <div class="col-md-4">

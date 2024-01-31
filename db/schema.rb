@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_30_100820) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_24_165245) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -105,6 +105,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_30_100820) do
     t.string "social_media_id"
     t.string "alternate_contact_number"
     t.float "height"
+    t.string "gender"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

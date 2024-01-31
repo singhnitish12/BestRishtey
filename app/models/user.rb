@@ -4,7 +4,9 @@ class User < ApplicationRecord
   # devise :database_authenticatable, 
   #        :recoverable, :rememberable, :validatable
   
+
   enum role: { user: 0, admin: 1 }
+  enum gender: { Groom: 'Groom', Bride: 'Bride', other: 'Other' }
   #attr_accessor :first_name, :dob
   before_validation :calculate_and_set_age, on: :create
   before_validation :generate_unique_code, on: :create

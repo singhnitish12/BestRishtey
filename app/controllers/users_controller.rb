@@ -126,7 +126,7 @@ class UsersController < ApplicationController
           :email, :created_at, :updated_at, :first_name, :last_name, :contact_number, :address, :username, :password, :password_confirmation, :dob, :father_name, :mother_name, :religion, :cast , :height, :weight, :highest_qualification, :job_packages, :job_location, :mother_tongue, :description, :age,
           :avatar, :marital_status, :job_designation, :gotra, :bio, :dietary_habit, :family_type, :family_lives_in, :country,
           :state, :city, :siblings, :mothers_occupation,
-          :fathers_occupation, :social_media_id, :alternate_contact_number
+          :fathers_occupation, :social_media_id, :alternate_contact_number,:gender
         
         )
       end
